@@ -20,11 +20,11 @@ const basemapProvider = new Cesium.UrlTemplateImageryProvider({
 
 Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3ZmQ1NDg5OS1mMTI1LTQ4MmQtYmNlMi1iN2M2NDM3YzEyZWYiLCJpZCI6MjExMTMyLCJpYXQiOjE3MTQxMjUzNzh9.5qmyANiVhpblT-D35m05D8ZIYTPEM2AibGOBIHccwFg'
 
-viewer.scene.setTerrain(
-  new Cesium.Terrain(
-    Cesium.CesiumTerrainProvider.fromIonAssetId(2552854),
-  ),
-);
+// viewer.scene.setTerrain(
+//   new Cesium.Terrain(
+//     Cesium.CesiumTerrainProvider.fromIonAssetId(2552854),
+//   ),
+// );
 
   addLayer = async() =>{
     let tileset = await Cesium.Cesium3DTileset.fromUrl(
@@ -64,6 +64,16 @@ viewer.scene.setTerrain(
     
     tileset = await Cesium.Cesium3DTileset.fromUrl(
       'https://data.map.gov.hk/api/3d-data/3dtiles/3dbit00_bf/infr_l3_bf_rt/tileset.json?key=34b1fa2e4fe24dcd80838c9a30d9d89b'
+    );
+    viewer.scene.primitives.add(tileset);  
+    
+    tileset = await Cesium.Cesium3DTileset.fromUrl(
+      'https://data.map.gov.hk/api/3d-data/3dtiles/t_bi_f1/tileset.json?key=34b1fa2e4fe24dcd80838c9a30d9d89b'
+    );
+    viewer.scene.primitives.add(tileset);  
+    
+    tileset = await Cesium.Cesium3DTileset.fromUrl(
+      'https://data.map.gov.hk/api/3d-data/3dtiles/t_t_f1/tileset.json?key=34b1fa2e4fe24dcd80838c9a30d9d89b'
     );
     viewer.scene.primitives.add(tileset);    
   }
